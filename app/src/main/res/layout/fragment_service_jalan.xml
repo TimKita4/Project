@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".serviceJalan">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_margin="15dp">
+
+        <TextView
+            android:id="@+id/judul"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Perbaiki Dijalan"
+            android:textStyle="bold"
+            android:textSize="20dp"
+            android:layout_marginBottom="20dp"/>
+
+        <android.support.design.widget.TextInputLayout
+            android:layout_below="@+id/judul"
+            android:id="@+id/tNama"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            >
+            <EditText
+                android:layout_below="@+id/judul"
+                android:layout_width="match_parent"
+                android:id="@+id/nama"
+                android:layout_height="wrap_content"
+                android:hint="Nama"/>
+        </android.support.design.widget.TextInputLayout>
+
+        <android.support.design.widget.TextInputLayout
+            android:layout_below="@+id/tNama"
+            android:id="@+id/tNo"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            >
+            <EditText
+                android:id="@+id/no_hp"
+                android:inputType="number"
+                android:layout_below="@+id/nama"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="No Hp"/>
+        </android.support.design.widget.TextInputLayout>
+        <android.support.design.widget.TextInputLayout
+            android:layout_below="@+id/tNo"
+            android:id="@+id/tDeskripsi"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            >
+            <EditText
+                android:id="@+id/deskipsi"
+                android:layout_below="@+id/no_hp"
+                android:layout_width="match_parent"
+                android:layout_height="150dp"
+                android:hint="Kerusakan Motor "
+                android:inputType="text|textMultiLine"
+                android:gravity="top"/>
+        </android.support.design.widget.TextInputLayout>
+
+    </RelativeLayout>
+
+</FrameLayout>

@@ -1,0 +1,31 @@
+
+<Tab>
+    <tab
+        id="@+id/tab_home"
+        icon="@drawable/home"
+        activeColor="#3498db"
+        titleSize="6dp"
+        title="Home"
+        />
+    <tab
+        id="@+id/tab_pesan"
+        icon="@drawable/pesan"
+        activeColor="#3498db"
+        titleSize="6dp"
+        title="Pesan"
+        />
+    <tab
+        id="@+id/tab_notif"
+        icon="@drawable/notif"
+        activeColor="#3498db"
+        titleSize="6dp"
+        title="Notif"
+        />
+    <tab
+        id="@+id/tab_profil"
+        icon="@drawable/person"
+        activeColor="#3498db"
+        titleSize="6dp"
+        title="Profil"
+        />
+</Tab>
