@@ -32,6 +32,14 @@
             android:textSize="15sp"
             android:layout_below="@id/tvNama"
             />
+        <TextView
+            android:id="@+id/tvAlamat"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:hint="Alamat"
+            android:textSize="15sp"
+            android:layout_below="@id/tvNomor"
+            />
     </RelativeLayout>
     <View
         android:background="@color/colorPrimary"
