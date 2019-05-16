@@ -56,68 +56,12 @@ public class service extends Fragment {
         kel=view.findViewById(R.id.kel);
         tambah=view.findViewById(R.id.tambah);
         //batal=view.findViewById(R.id.batal);
-        tambah.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Simpan();
-            }
-        });
+
 
         return view;
 
     }
 
 
-    private void Simpan() {
-        loading.setVisibility(View.VISIBLE);
-        tambah.setVisibility(View.GONE);
 
-        final String name = this.nama.getText().toString().trim();
-        final String email = this.no_hp.getText().toString().trim();
-        final String password = this.kel.getText().toString().trim();
-
-        StringRequest stringRequest = new StringRequest(Request.Method.POST, URL_REGIST,
-                new Response.Listener<String>() {
-                    @Override
-                    public void onResponse(String response) {
-                        try {
-                            JSONObject jsonObject = new JSONObject(response);
-                            String success = jsonObject.getString("success");
-
-                            if (success.equals("1")) {
-                                Toast.makeText(getActivity().this, "Register Success!", Toast.LENGTH_LONG).show();
-                            }
-
-                        } catch (JSONException e) {
-                            e.printStackTrace();
-                            Toast.makeText(getActivity().this, "Register Gagal!" + e.toString() , Toast.LENGTH_LONG).show();
-                            loading.setVisibility(View.GONE);
-                            tambah.setVisibility(View.VISIBLE);
-
-                        }
-                        Intent intent= new Intent(getActivity().this,login.class);
-                        startActivity(intent);
-                    }
-                },
-                new Response.ErrorListener() {
-                    @Override
-                    public void onErrorResponse(VolleyError error) {
-                        Toast.makeText(getActivity().this, "Register Error!" + error.toString(), Toast.LENGTH_LONG).show();
-                        loading.setVisibility(View.GONE);
-                        tambah.setVisibility(View.VISIBLE);
-                    }
-                }) {
-            @Override
-            protected Map<String, String> getParams() throws AuthFailureError {
-                Map<String, String> params = new HashMap<>();
-                params.put("username", name);
-                params.put("email", email);
-                params.put("password", password);
-                // params.put("Alamat", password);
-                return params;
-            }
-        };
-        RequestQueue requestQueue = Volley.newRequestQueue(this);
-        requestQueue.add(stringRequest);
-    }
 }
