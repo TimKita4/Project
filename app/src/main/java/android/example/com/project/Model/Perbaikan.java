@@ -1,14 +1,19 @@
 package android.example.com.project.Model;
 
+import com.google.gson.annotations.SerializedName;
+
 public class Perbaikan {
+    @SerializedName("id")
     private String id;
+    @SerializedName("nama")
     private String nama;
+    @SerializedName("nomor")
     private String no_hp;
+    @SerializedName("alamat")
     private String alamat;
-
-
-
+    @SerializedName("deskripsi")
     private String deskripsi;
+
     public Perbaikan(){}
 
     public Perbaikan(String id,String nama,String no_hp,String alamat,String deskripsi){

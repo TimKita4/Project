@@ -1,8 +1,13 @@
 package android.example.com.project.Model;
 
+import com.google.gson.annotations.SerializedName;
+
 public class PostPutDelPerbaikan {
+    @SerializedName("status")
     String status;
+    @SerializedName("result")
     Perbaikan mPerbaikan;
+    @SerializedName("message")
     String message;
     public String getStatus() {
         return status;

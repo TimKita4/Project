@@ -46,15 +46,15 @@ public class Main2Activity extends AppCompatActivity {
         ma=this;
     }
     public void refresh() {
-        Call<GetPerbaikan> kontakCall = mApiInterface.getPerbaikan();
-        kontakCall.enqueue(new Callback<GetPerbaikan>() {
+        Call<GetPerbaikan> perbaikanCall = mApiInterface.getPerbaikan();
+        perbaikanCall.enqueue(new Callback<GetPerbaikan>() {
             @Override
             public void onResponse(Call<GetPerbaikan> call, Response<GetPerbaikan>
                     response) {
-                List<Perbaikan> KontakList = response.body().getPerbaikanList();
+                List<Perbaikan> PerbaikanList = response.body().getPerbaikanList();
                 Log.d("Retrofit Get", "Jumlah data Kontak: " +
-                        String.valueOf(KontakList.size()));
-                mAdapter = new PerbaikanAdapter(KontakList);
+                        String.valueOf(PerbaikanList.size()));
+                mAdapter = new PerbaikanAdapter(PerbaikanList);
                 mRecyclerView.setAdapter(mAdapter);
             }
 

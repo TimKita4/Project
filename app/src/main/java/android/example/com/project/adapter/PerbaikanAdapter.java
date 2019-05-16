@@ -15,8 +15,8 @@ import java.util.List;
 public class PerbaikanAdapter extends RecyclerView.Adapter<PerbaikanAdapter.MyViewHolder> {
     List<Perbaikan> mPerbaikanList;
 
-    public PerbaikanAdapter(List <Perbaikan> PerbaikanAdapter) {
-        mPerbaikanList = PerbaikanAdapter;
+    public PerbaikanAdapter(List <Perbaikan> PerbaikanList) {
+        mPerbaikanList = PerbaikanList;
     }
 
     @Override
@@ -31,8 +31,8 @@ public class PerbaikanAdapter extends RecyclerView.Adapter<PerbaikanAdapter.MyVi
         holder.mTextViewId.setText("Id = " + mPerbaikanList.get(position).getId());
         holder.mTextViewNama.setText("Nama = " + mPerbaikanList.get(position).getNama());
         holder.mTextViewNomor.setText("No_hp = " + mPerbaikanList.get(position).getNo_hp());
-        holder.mTextViewAlamat.setText("No_hp = " + mPerbaikanList.get(position).getAlamat());
-        holder.mTextViewDeskripsi.setText("No_hp = " + mPerbaikanList.get(position).getDeskripsi());
+        holder.mTextViewAlamat.setText("Alamat = " + mPerbaikanList.get(position).getAlamat());
+        holder.mTextViewDeskripsi.setText("Deskripsi = " + mPerbaikanList.get(position).getDeskripsi());
         holder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -61,7 +61,7 @@ public class PerbaikanAdapter extends RecyclerView.Adapter<PerbaikanAdapter.MyVi
             mTextViewNama = (TextView) itemView.findViewById(R.id.tvNama);
             mTextViewNomor = (TextView) itemView.findViewById(R.id.tvNomor);
             mTextViewAlamat = (TextView) itemView.findViewById(R.id.tvAlamat);
-            mTextViewDeskripsi = (TextView) itemView.findViewById(R.id.tvAlamat);
+            mTextViewDeskripsi = (TextView) itemView.findViewById(R.id.tvDeskripsi);
         }
     }
 }
