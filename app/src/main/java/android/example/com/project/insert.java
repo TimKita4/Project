@@ -37,6 +37,7 @@ public class insert extends AppCompatActivity {
                 postKontakCall.enqueue(new Callback<PostPutDelPerbaikan>() {
                     @Override
                     public void onResponse(Call<PostPutDelPerbaikan> call, Response<PostPutDelPerbaikan> response) {
+                        Toast.makeText(getApplicationContext(),"Berhasil",Toast.LENGTH_LONG).show();
                         Main2Activity.ma.refresh();
                         finish();
                     }
