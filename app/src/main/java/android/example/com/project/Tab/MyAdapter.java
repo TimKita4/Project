@@ -8,7 +8,7 @@ package android.example.com.project.Tab;
 import android.content.Context;
 import android.example.com.project.R;
 import android.example.com.project.service;
-import android.example.com.project.serviceJalan;
+import android.example.com.project.serviceBengkel;
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
@@ -43,7 +43,7 @@ public class MyAdapter extends FragmentPagerAdapter {
         if(position ==0){
             fragment = new service();
         }else if(position == 1){
-            fragment = new serviceJalan();}
+            fragment = new serviceBengkel();}
 
         Bundle b = new Bundle();
         b.putInt("position", position);

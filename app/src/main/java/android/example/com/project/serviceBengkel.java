@@ -1,16 +1,20 @@
 package android.example.com.project;
 
+import android.app.Dialog;
+import android.graphics.Color;
+import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 
 
-public class serviceJalan extends Fragment {
+public class serviceBengkel extends Fragment {
+    Dialog myDialog;
 
-
-    public serviceJalan() {
+    public serviceBengkel() {
         // Required empty public constructor
     }
 
