@@ -31,11 +31,11 @@ public class edit extends AppCompatActivity {
         edtDeskripsi = (EditText) findViewById(R.id.edtDeskripsi);
         edtAlamat = (EditText) findViewById(R.id.edtAlamat);
         Intent mIntent = getIntent();
-        edtId.setText(mIntent.getStringExtra("Id"));
+        edtId.setText(mIntent.getStringExtra("id"));
         edtId.setTag(edtId.getKeyListener());
         edtId.setKeyListener(null);
-        edtNama.setText(mIntent.getStringExtra("Nama"));
-        edtNomor.setText(mIntent.getStringExtra("Nomor"));
+        edtNama.setText(mIntent.getStringExtra("nama"));
+        edtNomor.setText(mIntent.getStringExtra("no_hp"));
         mApiInterface = ApiClient.getClient().create(ApiInterface.class);
         btUpdate = (Button) findViewById(R.id.btUpdate2);
         btUpdate.setOnClickListener(new View.OnClickListener() {
@@ -50,7 +50,7 @@ public class edit extends AppCompatActivity {
                 updateKontakCall.enqueue(new Callback<PostPutDelPerbaikan>() {
                     @Override
                     public void onResponse(Call<PostPutDelPerbaikan> call, Response<PostPutDelPerbaikan> response) {
-                        Main2Activity.ma.refresh();
+                        //login.ma.refresh();
                         finish();
                     }
 
@@ -70,7 +70,7 @@ public class edit extends AppCompatActivity {
                     deleteKontak.enqueue(new Callback<PostPutDelPerbaikan>() {
                         @Override
                         public void onResponse(Call<PostPutDelPerbaikan> call, Response<PostPutDelPerbaikan> response) {
-                            Main2Activity.ma.refresh();
+                           // Main2Activity.ma.refresh();
                             finish();
                         }
 
@@ -88,7 +88,7 @@ public class edit extends AppCompatActivity {
         btBack.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Main2Activity.ma.refresh();
+               // Main2Activity.ma.refresh();
                 finish();
             }
         });

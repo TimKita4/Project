@@ -1,6 +1,7 @@
 package android.example.com.project.fragment;
 
 import android.content.Intent;
+import android.example.com.project.DataMontir;
 import android.example.com.project.R;
 import android.example.com.project.adapter.GridAdapter;
 import android.example.com.project.perbaikan;
@@ -20,7 +21,7 @@ public class HomeFragment extends Fragment {
     RecyclerView.LayoutManager mLayoutManager;
     RecyclerView.Adapter mAdapter;
     FragmentManager mFragmentManagers;
-private CardView mPerbaiki;
+private CardView mPerbaiki,montir;
     public HomeFragment() {
         // Required empty public constructor
     }
@@ -37,6 +38,14 @@ private CardView mPerbaiki;
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(v.getContext(),perbaikan.class); v.getContext().startActivity(intent);
+            }
+        });
+        montir=view.findViewById(R.id.montir);
+        montir.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(v.getContext(),DataMontir.class);
+                v.getContext().startActivity(intent);
             }
         });
 

@@ -1,134 +1,80 @@
 package android.example.com.project.fragment;
 
+import android.example.com.project.Model.GetPerbaikan;
+import android.example.com.project.Model.Perbaikan;
 import android.example.com.project.R;
-import android.example.com.project.adapter.CustomAdapter;
+import android.example.com.project.Rest.ApiClient;
+import android.example.com.project.Rest.ApiInterface;
+import android.example.com.project.adapter.PerbaikanAdapter;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
-import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 
+import java.util.List;
+
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
 
 
 public class PesanFragment extends Fragment {
-    private static final String TAG = "RecyclerViewFragment";
-    private static final String KEY_LAYOUT_MANAGER = "layoutManager";
-    private static final int SPAN_COUNT = 2;
-    private static final int DATASET_COUNT = 60; // menampilkan data sebanyak value
+    Button btn_inst;
+    ApiInterface mApiInterface;
+    private RecyclerView mRecyclerView;
+    private RecyclerView.Adapter mAdapter;
+    private RecyclerView.LayoutManager mLayoutManager;
+    public static PesanFragment ma;
 
-    private enum LayoutManagerType {
-        GRID_LAYOUT_MANAGER,
-        LINEAR_LAYOUT_MANAGER
-    }
 
-    protected LayoutManagerType mCurrentLayoutManagerType;
 
-    protected RecyclerView mRecyclerView;
-    protected CustomAdapter mAdapter;
-    protected RecyclerView.LayoutManager mLayoutManager;
-    protected String[] mDataset, mDataset2,mDataset4;
-    protected int[] mDataset3;
-
-    int [] icon = {R.drawable.home, R.drawable.bengkel};
-    String [] judul = {"Perbaiki Dirumah","Perbaiki Dibengkel"};
-    String [] deskripsi = {"Motor anda akan diperbaiki sebentar lagi","Motor anda diperbaiki dibengkel"};
-    String [] waktu = {"16:04","13:00"};
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        // Initialize dataset, this data would usually come from a local content provider or
-        // remote server.
-        initDataset();
     }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         View rootView = inflater.inflate(R.layout.fragment_pesan, container, false);
-        rootView.setTag(TAG);
-
-        // BEGIN_INCLUDE(initializeRecyclerView)
-        mRecyclerView = (RecyclerView) rootView.findViewById(R.id.recycleView);
-
-        // LinearLayoutManager is used here, this will layout the elements in a similar fashion
-        // to the way ListView would layout elements. The RecyclerView.LayoutManager defines how
-        // elements are laid out.
-        mLayoutManager = new LinearLayoutManager(getActivity());
-
-        mCurrentLayoutManagerType = LayoutManagerType.LINEAR_LAYOUT_MANAGER;
-
-        if (savedInstanceState != null) {
-            // Restore saved layout manager type.
-            mCurrentLayoutManagerType = (LayoutManagerType) savedInstanceState
-                    .getSerializable(KEY_LAYOUT_MANAGER);
-        }
-        setRecyclerViewLayoutManager(mCurrentLayoutManagerType);
-
-        mAdapter = new CustomAdapter(mDataset,mDataset2,mDataset3,mDataset4);
-        // Set CustomAdapter as the adapter for RecyclerView.
-        mRecyclerView.setAdapter(mAdapter);
-        // END_INCLUDE(initializeRecyclerView)
+        mRecyclerView = (RecyclerView) rootView.findViewById(R.id.ayolah);
+        mLayoutManager  = new LinearLayoutManager(getActivity());
+        mRecyclerView.setLayoutManager(mLayoutManager);
+        mApiInterface = ApiClient.getClient().create(ApiInterface.class);
+        ma=this;
+        refresh();
 
         return rootView;
     }
+    public void refresh() {
+        Call<GetPerbaikan> perbaikanCall = mApiInterface.getPerbaikan();
+        perbaikanCall.enqueue(new Callback<GetPerbaikan>() {
+            @Override
+            public void onResponse(Call<GetPerbaikan> call, Response<GetPerbaikan>
+                    response) {
+                List<Perbaikan> PerbaikanList = response.body().getPerbaikanList();
+                Log.d("Retrofit Get", "Jumlah data Kontak: " +
+                        String.valueOf(PerbaikanList.size()));
+                mAdapter = new PerbaikanAdapter(PerbaikanList);
+                mRecyclerView.setAdapter(mAdapter);
+            }
 
-    /**
-     * Set RecyclerView's LayoutManager to the one given.
-     *
-     * @param layoutManagerType Type of layout manager to switch to.
-     */
-    public void setRecyclerViewLayoutManager(LayoutManagerType layoutManagerType) {
-        int scrollPosition = 0;
-
-        // If a layout manager has already been set, get current scroll position.
-        if (mRecyclerView.getLayoutManager() != null) {
-            scrollPosition = ((LinearLayoutManager) mRecyclerView.getLayoutManager())
-                    .findFirstCompletelyVisibleItemPosition();
-        }
-
-        switch (layoutManagerType) {
-            case GRID_LAYOUT_MANAGER:
-                mLayoutManager = new GridLayoutManager(getActivity(), SPAN_COUNT);
-                mCurrentLayoutManagerType = LayoutManagerType.GRID_LAYOUT_MANAGER;
-                break;
-            case LINEAR_LAYOUT_MANAGER:
-                mLayoutManager = new LinearLayoutManager(getActivity());
-                mCurrentLayoutManagerType = LayoutManagerType.LINEAR_LAYOUT_MANAGER;
-                break;
-            default:
-                mLayoutManager = new LinearLayoutManager(getActivity());
-                mCurrentLayoutManagerType = LayoutManagerType.LINEAR_LAYOUT_MANAGER;
-        }
-
-        mRecyclerView.setLayoutManager(mLayoutManager);
-        mRecyclerView.scrollToPosition(scrollPosition);
+            @Override
+            public void onFailure(Call<GetPerbaikan> call, Throwable t) {
+                Log.e("Retrofit Get", t.toString());
+            }
+        });
     }
 
-    @Override
-    public void onSaveInstanceState(Bundle savedInstanceState) {
-        // Save currently selected layout manager.
-        savedInstanceState.putSerializable(KEY_LAYOUT_MANAGER, mCurrentLayoutManagerType);
-        super.onSaveInstanceState(savedInstanceState);
-    }
-    /**
-     * Generates Strings for RecyclerView's adapter. This data would usually come
-     * from a local content provider or remote server.
-     */
-    private void initDataset() {
-        mDataset = new String[judul.length];
-        mDataset2 = new String[deskripsi.length];
-        mDataset4 = new String[waktu.length];
-        mDataset3 = new int[icon.length];
-        for (int i = 0; i < judul.length; i++) {
-            mDataset[i] = judul[i];
-            mDataset4[i] = waktu[i];
-            mDataset2[i] = deskripsi[i];
-            mDataset3[i] = icon[i];
-        }
-    }
+
+
+
+
 }

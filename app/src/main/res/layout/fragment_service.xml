@@ -10,26 +10,36 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_margin="15dp">
+        <TextView
+            android:textSize="20dp"
+            android:textStyle="bold"
+            android:textColor="@color/hitam"
+            android:id="@+id/judul"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="5dp"
+            android:text="Perbaikan Dijalan"/>
+        <View
+            android:id="@+id/view"
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_below="@+id/judul"
+            android:background="@color/colorGray"
 
-    <TextView
-        android:id="@+id/judul"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Perbaiki Dibengkel"
-        android:textStyle="bold"
-        android:textSize="20dp"
-        android:layout_marginBottom="20dp"/>
-
+            />
         <android.support.design.widget.TextInputLayout
-                android:layout_below="@+id/judul"
+            android:layout_marginTop="15dp"
+                android:layout_below="@+id/view"
                 android:id="@+id/tNama"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
             >
             <EditText
+
+                android:textColorHint="@color/hitam"
                 android:layout_below="@+id/judul"
                 android:layout_width="match_parent"
-                android:id="@+id/nama"
+                android:id="@+id/edtNama"
                 android:layout_height="wrap_content"
                 android:hint="Nama"/>
         </android.support.design.widget.TextInputLayout>
@@ -42,8 +52,9 @@
             android:layout_marginTop="5dp"
             >
             <EditText
-                android:id="@+id/no_hp"
+                android:id="@+id/edtNomor"
                 android:inputType="number"
+                android:textColorHint="@color/hitam"
                 android:layout_below="@+id/nama"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -57,35 +68,61 @@
             android:layout_marginTop="5dp"
             >
             <EditText
-                android:id="@+id/deskipsi"
+                android:id="@+id/edtDeskripsi"
                 android:layout_below="@+id/no_hp"
                 android:layout_width="match_parent"
                 android:layout_height="150dp"
+                android:textColorHint="@color/hitam"
                 android:hint="Kerusakan Motor "
                 android:inputType="text|textMultiLine"
                 android:gravity="top"/>
         </android.support.design.widget.TextInputLayout>
-        <android.support.design.widget.TextInputLayout
+        <LinearLayout
             android:layout_below="@+id/tDeskripsi"
+            android:id="@+id/map"
+            android:orientation="horizontal"
+            android:weightSum="1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+        <android.support.design.widget.TextInputLayout
             android:id="@+id/tKel"
+            android:layout_weight="1"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="5dp"
             >
             <EditText
-                android:id="@+id/kel"
+                android:id="@+id/edtAlamat"
                 android:inputType="text"
                 android:layout_below="@+id/tDeskripsi"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="Kel"/>
+                android:textColorHint="@color/hitam"
+                android:hint="Alamat"/>
         </android.support.design.widget.TextInputLayout>
+        <ImageButton
+            android:layout_toRightOf="@+id/tKel"
+            android:id="@+id/bt_ppicker"
+            android:src="@drawable/maps"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent" />
+        </LinearLayout>
+        <TextView
+
+            android:layout_below="@id/map"
+            android:textColor="@color/putih"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="latlong"
+            android:id="@+id/latLong"/>
         <Button
+            android:layout_centerHorizontal="true"
             android:layout_marginTop="5dp"
-            android:id="@+id/tambah"
-            android:layout_below="@+id/tKel"
+            android:id="@+id/btInsert"
+            android:layout_below="@+id/map"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="PERBAIKI"/>
+
     </RelativeLayout>
 </FrameLayout>

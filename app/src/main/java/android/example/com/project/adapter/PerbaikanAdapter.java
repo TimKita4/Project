@@ -3,6 +3,7 @@ package android.example.com.project.adapter;
 import android.content.Intent;
 import android.example.com.project.Model.Perbaikan;
 import android.example.com.project.R;
+import android.example.com.project.detail_perbaikan;
 import android.example.com.project.edit;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
@@ -28,20 +29,27 @@ public class PerbaikanAdapter extends RecyclerView.Adapter<PerbaikanAdapter.MyVi
 
     @Override
     public void onBindViewHolder (MyViewHolder holder,final int position){
-        holder.mTextViewId.setText("Id = " + mPerbaikanList.get(position).getId());
-        holder.mTextViewNama.setText("Nama = " + mPerbaikanList.get(position).getNama());
-        holder.mTextViewNomor.setText("No_hp = " + mPerbaikanList.get(position).getNo_hp());
-        holder.mTextViewAlamat.setText("Alamat = " + mPerbaikanList.get(position).getAlamat());
-        holder.mTextViewDeskripsi.setText("Deskripsi = " + mPerbaikanList.get(position).getDeskripsi());
+       // holder.mTextViewId.setText("id = " + mPerbaikanList.get(position).getId());
+        holder.mTextViewWaktu.setText( mPerbaikanList.get(position).getWaktu());
+       // holder.mTextViewNama.setText("nama = " + mPerbaikanList.get(position).getNama());
+        //holder.mTextViewNomor.setText("no_hp = " + mPerbaikanList.get(position).getNo_hp());
+        //holder.mTextViewAlamat.setText("alamat = " + mPerbaikanList.get(position).getAlamat());
+        holder.mTextViewJenis.setText("Perbaiki Di" + mPerbaikanList.get(position).getJenis_perbaiki());
+       // holder.mTextViewDeskripsi.setText("deskripsi = " + mPerbaikanList.get(position).getDeskripsi());
+        holder.mTextViewKondisi.setText( mPerbaikanList.get(position).getKondisi());
+        holder.mTextViewTanggal.setText( mPerbaikanList.get(position).getTanggal());
         holder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent mIntent = new Intent(view.getContext(), edit.class);
-                mIntent.putExtra("Id", mPerbaikanList.get(position).getId());
-                mIntent.putExtra("Nama", mPerbaikanList.get(position).getNama());
-                mIntent.putExtra("No_hp", mPerbaikanList.get(position).getNo_hp());
-                mIntent.putExtra("Alamat", mPerbaikanList.get(position).getAlamat());
-                mIntent.putExtra("Deskripsi", mPerbaikanList.get(position).getDeskripsi());
+                Intent mIntent = new Intent(view.getContext(), detail_perbaikan.class);
+                //mIntent.putExtra("id", mPerbaikanList.get(position).getId());
+                //mIntent.putExtra("id", mPerbaikanList.get(position).getId());
+                mIntent.putExtra("nama", mPerbaikanList.get(position).getNama());
+                mIntent.putExtra("no_hp", mPerbaikanList.get(position).getNo_hp());
+                mIntent.putExtra("alamat", mPerbaikanList.get(position).getAlamat());
+                mIntent.putExtra("deskripsi", mPerbaikanList.get(position).getDeskripsi());
+                mIntent.putExtra("jenis", mPerbaikanList.get(position).getJenis_perbaiki());
+                mIntent.putExtra("kondisi", mPerbaikanList.get(position).getKondisi());
                 view.getContext().startActivity(mIntent);
             }
         });
@@ -53,15 +61,19 @@ public class PerbaikanAdapter extends RecyclerView.Adapter<PerbaikanAdapter.MyVi
     }
 
     public class MyViewHolder extends RecyclerView.ViewHolder {
-        public TextView mTextViewId, mTextViewNama, mTextViewNomor,mTextViewAlamat,mTextViewDeskripsi;
+        public TextView mTextViewWaktu, mTextViewNama, mTextViewNomor,mTextViewAlamat,mTextViewDeskripsi,mTextViewKondisi,mTextViewTanggal,mTextViewJenis;
 
         public MyViewHolder(View itemView) {
             super(itemView);
-            mTextViewId = (TextView) itemView.findViewById(R.id.tvId);
-            mTextViewNama = (TextView) itemView.findViewById(R.id.tvNama);
-            mTextViewNomor = (TextView) itemView.findViewById(R.id.tvNomor);
-            mTextViewAlamat = (TextView) itemView.findViewById(R.id.tvAlamat);
-            mTextViewDeskripsi = (TextView) itemView.findViewById(R.id.tvDeskripsi);
+            //mTextViewId = (TextView) itemView.findViewById(R.id.tvId);
+            mTextViewWaktu = (TextView) itemView.findViewById(R.id.tvWaktu);
+           // mTextViewNama = (TextView) itemView.findViewById(R.id.tvNama);
+            //mTextViewNomor = (TextView) itemView.findViewById(R.id.tvNomor);
+            //mTextViewAlamat = (TextView) itemView.findViewById(R.id.tvAlamat);
+            mTextViewJenis = (TextView) itemView.findViewById(R.id.tvJenis);
+           // mTextViewDeskripsi = (TextView) itemView.findViewById(R.id.tvDeskripsi);
+            mTextViewKondisi = (TextView) itemView.findViewById(R.id.tvKondisi);
+            mTextViewTanggal = (TextView) itemView.findViewById(R.id.tvTanggal);
         }
     }
 }

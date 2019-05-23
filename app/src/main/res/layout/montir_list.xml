@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:orientation="vertical">
@@ -8,24 +7,24 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_margin="10dp">
+        <de.hdodenhof.circleimageview.CircleImageView
+            android:layout_marginRight="15dp"
+            android:id="@+id/tvFoto"
+            android:layout_width="100dp"
+            android:layout_height="80dp"
+            android:src="@mipmap/ic_launcher"/>
         <TextView
-            android:id="@+id/tvId"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:hint="Id"
-            android:layout_alignParentRight="true"
-            android:textSize="15sp"
-            android:textStyle="bold"
-            />
-        <TextView
+            android:textColor="@color/hitam"
+            android:layout_toRightOf="@+id/tvFoto"
             android:id="@+id/tvNama"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:hint="Nama"
-            android:layout_below="@id/tvId"
             android:textSize="15sp"
             />
         <TextView
+            android:textColor="@color/hitam"
+            android:layout_toRightOf="@+id/tvFoto"
             android:id="@+id/tvNomor"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -34,25 +33,27 @@
             android:layout_below="@id/tvNama"
             />
         <TextView
-            android:id="@+id/tvAlamat"
+            android:textColor="@color/hitam"
+            android:layout_toRightOf="@+id/tvFoto"
+            android:id="@+id/tvEmail"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:hint="Alamat"
+            android:hint="Email"
             android:textSize="15sp"
             android:layout_below="@id/tvNomor"
             />
-        <TextView
-            android:id="@+id/tvDeskripsi"
+        <!--<TextView
+            android:id="@+id/tvFoto"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:hint="Deskripsi"
+            android:hint="Foto"
             android:textSize="15sp"
-            android:layout_below="@id/tvAlamat"
-            />
+            android:layout_below="@id/tvEmail"
+            />-->
+
     </RelativeLayout>
     <View
         android:background="@color/colorGray"
         android:layout_width="match_parent"
         android:layout_height="2dp"/>
-
 </LinearLayout>
