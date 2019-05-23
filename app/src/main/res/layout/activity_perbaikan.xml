@@ -9,16 +9,20 @@
     <android.support.design.widget.AppBarLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:background="@color/colorGray"
         android:theme="@style/AppTheme.AppBarOverlay"
         >
         <android.support.v7.widget.Toolbar
-            app:titleTextColor="#ffff"
-            android:gravity="center"
-            android:id="@+id/toolbar"
+            android:id="@+id/toolbar_satu"
+            app:titleTextColor="@color/hitam"
+            app:title="Perbaikan"
+            android:layout_marginBottom="3dp"
+            android:minHeight="?attr/actionBarSize"
+            android:background="@color/putih"
             android:layout_width="match_parent"
-            android:layout_height="?attr/actionBarSize"
-            android:background="@color/toolbar"
-            app:popupTheme="@style/AppTheme.PopupOverlay" />
+            android:layout_height="wrap_content"
+            android:theme="@style/AppTheme.AppBarOverlay">
+        </android.support.v7.widget.Toolbar>
     </android.support.design.widget.AppBarLayout>
     <include layout="@layout/content_main" />
 

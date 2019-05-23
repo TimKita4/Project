@@ -2,22 +2,45 @@
 <LinearLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
+    android:layout_height="wrap_content"
     android:orientation="vertical">
     <RelativeLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_margin="10dp">
         <TextView
-            android:id="@+id/tvId"
+            android:id="@+id/tvTanggal"
+            android:textColor="@color/hitam"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:hint="Id"
+            android:hint="Tanggak"
             android:layout_alignParentRight="true"
             android:textSize="15sp"
             android:textStyle="bold"
             />
         <TextView
+            android:id="@+id/tvWaktu"
+            android:textColor="@color/hitam"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:hint="Waktu"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentBottom="true"
+            android:textSize="15sp"
+            android:textStyle="bold"
+            />
+
+        <TextView
+            android:id="@+id/tvJenis"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:hint="Jenis"
+            android:textStyle="bold"
+            android:textColor="@color/hitam"
+            android:textSize="20sp"
+
+            />
+      <!-- <TextView
             android:id="@+id/tvNama"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -47,12 +70,23 @@
             android:layout_height="wrap_content"
             android:hint="Deskripsi"
             android:textSize="15sp"
-            android:layout_below="@id/tvAlamat"
+            android:layout_below="@id/tvJenis"
+            />-->
+        <TextView
+            android:id="@+id/tvKondisi"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:hint="Kondisi"
+            android:textColor="@color/hitam"
+            android:textStyle="italic"
+            android:textSize="15sp"
+            android:layout_marginBottom="18dp"
+            android:layout_below="@id/tvJenis"
             />
     </RelativeLayout>
     <View
-        android:background="@color/colorPrimary"
+        android:background="@color/colorGray"
         android:layout_width="match_parent"
-        android:layout_height="5dp"/>
+        android:layout_height="2dp"/>
 
 </LinearLayout>

@@ -14,12 +14,19 @@
             android:id="@+id/judul"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Perbaiki Dijalan"
+            android:text="Perbaiki Dibengkel"
+            android:textColor="@color/hitam"
             android:textStyle="bold"
             android:textSize="20dp"
             android:layout_marginBottom="20dp"/>
+        <View
+            android:layout_below="@id/judul"
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="@color/hitam"/>
 
         <android.support.design.widget.TextInputLayout
+            android:layout_marginTop="10dp"
             android:layout_below="@+id/judul"
             android:id="@+id/tNama"
             android:layout_width="match_parent"

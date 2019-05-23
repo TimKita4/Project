@@ -26,7 +26,7 @@ import android.text.style.ImageSpan;
 public class MyAdapter extends FragmentPagerAdapter {
     private Context mContext;
     private String[] titles ={"A","B"};
-    int[] icon = new int[]{R.drawable.bengkel,R.drawable.lokasi};
+    int[] icon = new int[]{R.drawable.bengkel,R.drawable.maps};
     private int heightIcon;
 
     public MyAdapter(FragmentManager fm, Context c){

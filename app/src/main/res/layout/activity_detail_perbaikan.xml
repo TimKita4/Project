@@ -1,0 +1,164 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".detail_perbaikan">
+    <android.support.design.widget.AppBarLayout
+        android:id="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/colorGray"
+        android:theme="@style/AppTheme.AppBarOverlay"
+        >
+        <android.support.v7.widget.Toolbar
+            android:id="@+id/toolbar_satu"
+            app:titleTextColor="@color/hitam"
+            app:title="Detail Perbaikan"
+            android:layout_marginBottom="3dp"
+            android:minHeight="?attr/actionBarSize"
+            android:background="@color/putih"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:theme="@style/AppTheme.AppBarOverlay">
+        </android.support.v7.widget.Toolbar>
+    </android.support.design.widget.AppBarLayout>
+    <RelativeLayout
+        android:layout_below="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:padding="15dp"
+        >
+
+    <TextView
+        android:textStyle="bold"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Perbaikan Di"
+        android:id="@+id/perbaiki"
+        android:textSize="20dp"
+        android:textColor="@color/hitam"
+        android:layout_marginBottom="15dp"
+        android:layout_marginTop="15dp"/>
+
+        <TextView
+            android:textStyle="bold"
+            android:textColor="@color/hitam"
+            android:id="@+id/jenis"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_toRightOf="@id/perbaiki"
+            android:layout_marginTop="15dp"
+            android:text="Jenis"
+            android:layout_marginBottom="15dp"
+            android:textSize="20dp" />
+        <View
+            android:id="@+id/view"
+            android:layout_below="@id/jenis"
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="@color/colorGray"/>
+        <RelativeLayout
+            android:id="@+id/detail"
+            android:layout_marginTop="10dp"
+            android:layout_below="@id/view"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+    <TextView
+        android:textColor="@color/hitam"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Nama : "
+        android:id="@+id/tNama"/>
+    <TextView
+        android:textColor="@color/hitam"
+        android:layout_toRightOf="@id/tNama"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Nama"
+        android:id="@+id/nama"
+       />
+        <TextView
+
+            android:textColor="@color/hitam"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/tNama"
+            android:text="No Hp : "
+            android:id="@+id/tNo"/>
+     <TextView
+         android:layout_toRightOf="@id/tNo"
+         android:textColor="@color/hitam"
+         android:layout_width="wrap_content"
+         android:layout_height="wrap_content"
+         android:id="@+id/no_hp"
+         android:text="No Hp"
+         android:layout_below="@id/nama"
+         />
+    <TextView
+        android:textColor="@color/hitam"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/alamat"
+        android:layout_below="@id/no_hp"
+        android:text="Alamat"/>
+        <TextView
+            android:textColor="@color/hitam"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/alamat"
+            android:text="Deskripsi : "
+            android:id="@+id/tAlamat"/>
+    <TextView
+        android:layout_toRightOf="@id/tAlamat"
+        android:textColor="@color/hitam"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Deskripsi"
+        android:layout_below="@id/alamat"
+        android:id="@+id/deskripsi"/>
+        </RelativeLayout>
+        <View
+            android:layout_marginTop="10dp"
+            android:id="@+id/view2"
+            android:layout_below="@id/detail"
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="@color/colorGray"/>
+        <RelativeLayout
+            android:layout_below="@id/view2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/detail2">
+            <TextView
+                android:id="@+id/tKondisi"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Kondisi : "
+                android:textColor="@color/hitam"
+                />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/kondisi"
+                android:textStyle="bold"
+                android:layout_toRightOf="@id/tKondisi"/>
+            <TextView
+                android:layout_below="@id/kondisi"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Montir : "
+                android:textColor="@color/hitam"
+                android:id="@+id/tMontir"
+                />
+            <TextView
+                android:layout_below="@id/kondisi"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/montir"
+                android:text=" - "
+                android:layout_toRightOf="@id/tMontir"/>
+        </RelativeLayout>
+    </RelativeLayout>
+</RelativeLayout>

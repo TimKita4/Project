@@ -1,6 +1,11 @@
 package android.example.com.project;
 
 import android.content.Intent;
+import android.example.com.project.Model.PostPutDelLogin;
+import android.example.com.project.Model.PostPutDelPerbaikan;
+import android.example.com.project.Rest.ApiInterface;
+import android.example.com.project.Rest.ApiInterfaceLogin;
+import android.example.com.project.fragment.PesanFragment;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
@@ -25,24 +30,24 @@ import org.json.JSONObject;
 import java.util.HashMap;
 import java.util.Map;
 
+import retrofit2.Call;
+import retrofit2.Callback;
+
 public class login extends AppCompatActivity {
 
-    private EditText email, password;
+    private EditText username, password;
     private Button btn_login;
     private TextView link_regist;
     private ProgressBar loading;
-    private static final String URL_LOGIN ="http://192.168.1.16/android_register_login/login.php";
+    ApiInterfaceLogin mApiInterface;
 
 
     @Override
     protected void onCreate(Bundle savedInstancestate) {
         super.onCreate(savedInstancestate);
         setContentView(R.layout.activity_login);
-
-
-
         loading = findViewById(R.id.loading);
-        email = findViewById(R.id.email);
+        username = findViewById(R.id.nama);
         password = findViewById(R.id.password);
         btn_login = findViewById(R.id.btn_login);
         link_regist = findViewById(R.id.link_regist);
@@ -50,90 +55,21 @@ public class login extends AppCompatActivity {
         btn_login.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                String mEmail = email.getText().toString().trim();
-                String mPass = password.getText().toString().trim();
-
-                if (!mEmail.isEmpty() || !mPass.isEmpty()) {
-                    Login(mEmail, mPass);
-                } else {
-                    email.setError("Please insert email");
-                    password.setError("Please insert passowrd");
-                }
-            }
-        });
-
-        link_regist.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                startActivity(new Intent(login.this, register.class));
-            }
-        });
-    }
-
-    private void Login(final String email, final String password) {
-
-        loading.setVisibility(View.VISIBLE);
-        btn_login.setVisibility(View.GONE);
-
-        StringRequest stringRequest = new StringRequest(Request.Method.POST, URL_LOGIN,
-                new Response.Listener<String>() {
+               Call<PostPutDelLogin> postKontakCall = mApiInterface.postLogin(username.getText().toString(), password.getText().toString());
+                postKontakCall.enqueue(new Callback<PostPutDelLogin>() {
                     @Override
-                    public void onResponse(String response) {
-                        try {
-                            JSONObject jsonObject=new JSONObject(response);
-                            String success = jsonObject.getString("success");
-                            JSONArray jsonArray = jsonObject.getJSONArray("login");
-
-                            if (success.equals("1")) {
-
-                                for (int i=0;i<jsonArray.length();i++)
-                                {
-
-                                    JSONObject object = jsonArray.getJSONObject(i);
-
-                                    String username = object.getString("username").trim();
-                                    String email = object.getString("email").trim();
-                                    String id = object.getString("id").trim();
-
-
-
-                                    Toast.makeText(login.this,"Berhasil"+username,Toast.LENGTH_SHORT).show();
-                                    loading.setVisibility(View.GONE);
-                                 /*Intent intent = new Intent(LoginActivity.this, HomeActivity.class);
-
-                                   intent.putExtra("username", username);
-                                   intent.putExtra("email", email);
-                                   startActivity(intent);*/
-
-
-                                }
-                            }
-                        } catch (JSONException e) {
-                            e.printStackTrace();
-                            loading.setVisibility(View.GONE);
-                            btn_login.setVisibility(View.VISIBLE);
-                            Toast.makeText(login.this, "Gagal" +e.toString(), Toast.LENGTH_LONG).show();
-                        }
+                    public void onResponse(Call<PostPutDelLogin> call, retrofit2.Response<PostPutDelLogin> response) {
+                        Toast.makeText(getApplicationContext(),"Berhasil",Toast.LENGTH_LONG).show();
+                        finish();
                     }
-                },
-                new Response.ErrorListener() {
+
                     @Override
-                    public void onErrorResponse(VolleyError error) {
-                        loading.setVisibility(View.GONE);
-                        btn_login.setVisibility(View.VISIBLE);
-                        Toast.makeText(login.this, "Error" +error.toString(), Toast.LENGTH_LONG).show();
+                    public void onFailure(Call<PostPutDelLogin> call, Throwable t) {
+                        Toast.makeText(getApplicationContext(), "Error", Toast.LENGTH_LONG).show();
                     }
-                })
-        {
-            @Override
-            protected Map<String, String> getParams() throws AuthFailureError {
-                Map<String, String> params = new HashMap<>();
-                params.put("email", email);
-                params.put("password", password);
-                return params;
+                });
             }
-        };
-        RequestQueue requestQueue = Volley.newRequestQueue(this);
-        requestQueue.add(stringRequest);
+
+        });
     }
 }

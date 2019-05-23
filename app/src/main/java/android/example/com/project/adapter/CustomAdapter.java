@@ -25,7 +25,7 @@ public class CustomAdapter extends RecyclerView.Adapter<CustomAdapter.ViewHolder
      * Provide a reference to the type of views that you are using (custom ViewHolder)
      */
     public static class ViewHolder extends RecyclerView.ViewHolder {
-        private final TextView textView,textView2,textView3;
+        private final TextView textView,textView2;
         private final ImageView icon;
 
         public ViewHolder(View v) {
@@ -38,7 +38,7 @@ public class CustomAdapter extends RecyclerView.Adapter<CustomAdapter.ViewHolder
                 }
             });
             textView = (TextView) v.findViewById(R.id.judul);
-            textView3 = (TextView) v.findViewById(R.id.waktu);
+          //  textView3 = (TextView) v.findViewById(R.id.waktu);
             textView2 = (TextView) v.findViewById(R.id.deskripsi);
             icon = (ImageView) v.findViewById(R.id.image);
         }
@@ -49,9 +49,9 @@ public class CustomAdapter extends RecyclerView.Adapter<CustomAdapter.ViewHolder
         public TextView getTextView2() {
             return textView2;
         }
-        public TextView getTextView3() {
+       /* public TextView getTextView3() {
             return textView3;
-        }
+        }*/
         public ImageView getImageView() {
             return icon;
         }
@@ -92,7 +92,7 @@ public class CustomAdapter extends RecyclerView.Adapter<CustomAdapter.ViewHolder
         // with that element
         viewHolder.getTextView().setText(mDataSet[position]);
         viewHolder.getTextView2().setText(mDataSet2[position]);
-        viewHolder.getTextView3().setText(mDataSet4[position]);
+       // viewHolder.getTextView3().setText(mDataSet4[position]);
         viewHolder.getImageView().setImageResource(mDataSet3[position]);
     }
     // END_INCLUDE(recyclerViewOnBindViewHolder)

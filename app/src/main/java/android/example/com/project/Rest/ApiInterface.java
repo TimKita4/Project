@@ -14,14 +14,17 @@ import retrofit2.http.PUT;
 
 
 public interface ApiInterface {
-    @GET("perbaikan_android")
+    @GET("perbaikan")
     Call<GetPerbaikan> getPerbaikan();
     @FormUrlEncoded
     @POST("perbaikan")
     Call<PostPutDelPerbaikan> postPerbaikan(@Field("nama") String nama,
                                             @Field("no_hp") String no_hp,
+                                            @Field("alamat") String alamat,
                                             @Field("deskripsi") String deskripsi,
-                                            @Field("alamat") String alamat);
+                                            @Field("LatLong") String LatLong
+                                            );
+
     @FormUrlEncoded
     @PUT("perbaikan")
     Call<PostPutDelPerbaikan> putPerbaikan(@Field("id") String id,

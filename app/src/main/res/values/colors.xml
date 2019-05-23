@@ -9,5 +9,9 @@
     <color name="toolbar">#0abde3</color>
     <color name="tab">#48dbfb</color>
     <color name="abu">#2f3640</color>
+    <color name="putih">#ffff</color>
+    <color name="hitam">#000</color>
+    <color name="oren">#fa8231</color>
+    <color name="oren_bawah">#fd9644</color>
 
 </resources>
