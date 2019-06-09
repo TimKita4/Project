@@ -42,7 +42,7 @@ public class MontirAdapter extends RecyclerView.Adapter<MontirAdapter.MyViewHold
         holder.mTextViewNo.setText(mMontirList.get(position).getNo_hp());
         holder.mTextViewEmail.setText(mMontirList.get(position).getEmail());
         //holder.mTextViewFoto.setText(mMontirList.get(position).getFoto());
-        final String urlGambarBerita = "http://192.168.1.16/ProjectKita/berkas/" + mMontirList.get(position).getFoto();
+        final String urlGambarBerita = "http://192.168.1.11/ProjectKita/berkas/" + mMontirList.get(position).getFoto();
         // Set image ke widget dengna menggunakan Library Piccasso
         // krena imagenya dari internet
         Picasso.with(context).load(urlGambarBerita).into(holder.mTextViewFoto);

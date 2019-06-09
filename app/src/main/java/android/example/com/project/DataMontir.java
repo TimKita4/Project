@@ -1,20 +1,18 @@
 package android.example.com.project;
 
-import android.content.Context;
 import android.example.com.project.Model.GetMontir;
-import android.example.com.project.Model.GetPerbaikan;
 import android.example.com.project.Model.Montir;
-import android.example.com.project.Model.Perbaikan;
-import android.example.com.project.Rest.ApiClient;
 import android.example.com.project.Rest.ApiClientMontir;
 import android.example.com.project.Rest.ApiInterface;
-import android.example.com.project.Rest.ApiInterfaceMontir;
 import android.example.com.project.adapter.MontirAdapter;
-import android.example.com.project.adapter.PerbaikanAdapter;
+import android.graphics.PorterDuff;
+import android.graphics.drawable.Drawable;
+import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.support.v7.widget.Toolbar;
 import android.util.Log;
 
 import java.util.List;
@@ -24,7 +22,7 @@ import retrofit2.Callback;
 import retrofit2.Response;
 
 public class DataMontir extends AppCompatActivity {
-    ApiInterfaceMontir mApiInterface;
+    ApiInterface mApiInterface;
     private RecyclerView mRecyclerView;
     private RecyclerView.Adapter mAdapter;
     private RecyclerView.LayoutManager mLayoutManager;
@@ -33,10 +31,17 @@ public class DataMontir extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_data_montir);
+        Toolbar ToolBarAtas2 = (Toolbar)findViewById(R.id.toolbar_satu);
+        setSupportActionBar(ToolBarAtas2);
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        final Drawable upArrow = ContextCompat.getDrawable(this, R.drawable.abc_ic_ab_back_material);
+        upArrow.setColorFilter(ContextCompat.getColor(this, R.color.hitam), PorterDuff.Mode.SRC_ATOP);
+
+        getSupportActionBar().setHomeAsUpIndicator(upArrow);
         mRecyclerView = (RecyclerView) findViewById(R.id.montir);
         mLayoutManager  = new LinearLayoutManager(this);
         mRecyclerView.setLayoutManager(mLayoutManager);
-        mApiInterface = ApiClientMontir.getMontir().create(ApiInterfaceMontir.class);
+        mApiInterface = ApiClientMontir.getMontir().create(ApiInterface.class);
         ma=this;
         refresh();
     }

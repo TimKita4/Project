@@ -50,6 +50,7 @@ public class PerbaikanAdapter extends RecyclerView.Adapter<PerbaikanAdapter.MyVi
                 mIntent.putExtra("deskripsi", mPerbaikanList.get(position).getDeskripsi());
                 mIntent.putExtra("jenis", mPerbaikanList.get(position).getJenis_perbaiki());
                 mIntent.putExtra("kondisi", mPerbaikanList.get(position).getKondisi());
+                mIntent.putExtra("montir", mPerbaikanList.get(position).getMontir());
                 view.getContext().startActivity(mIntent);
             }
         });

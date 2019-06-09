@@ -6,13 +6,25 @@
     android:layout_height="match_parent"
     android:background="@color/colorGray"
     tools:context=".DataMontir">
-    <android.support.v7.widget.Toolbar
+    <android.support.design.widget.AppBarLayout
         android:id="@+id/toolbar"
-        app:title="Montir Kami"
-        android:background="@color/putih"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="3dp"></android.support.v7.widget.Toolbar>
+        android:background="@color/colorGray"
+        android:theme="@style/AppTheme.AppBarOverlay"
+        >
+        <android.support.v7.widget.Toolbar
+            android:id="@+id/toolbar_satu"
+            app:titleTextColor="@color/hitam"
+            app:title="Montir Kami"
+            android:layout_marginBottom="3dp"
+            android:minHeight="?attr/actionBarSize"
+            android:background="@color/putih"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:theme="@style/AppTheme.AppBarOverlay">
+        </android.support.v7.widget.Toolbar>
+    </android.support.design.widget.AppBarLayout>
     <android.support.v7.widget.RecyclerView
 
         android:id="@+id/montir"

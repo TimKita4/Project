@@ -4,13 +4,98 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:orientation="vertical"
     tools:context=".tentang">
-    <Button
-        android:id="@+id/btn_navigasi"
-        android:layout_gravity="center"
-        android:layout_width="wrap_content"
+    <android.support.design.widget.AppBarLayout
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:drawableLeft="@android:drawable/ic_menu_directions"
-        android:text="Navigasi" />
+        android:background="@color/colorGray"
+        android:theme="@style/AppTheme.AppBarOverlay"
+        >
+        <android.support.v7.widget.Toolbar
+            android:id="@+id/toolbar_satu"
+            app:titleTextColor="@color/hitam"
+            app:title="Bantuan"
+            android:layout_marginBottom="3dp"
+            android:minHeight="?attr/actionBarSize"
+            android:background="@color/putih"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:theme="@style/AppTheme.AppBarOverlay">
+        </android.support.v7.widget.Toolbar>
+    </android.support.design.widget.AppBarLayout>
 
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="15dp">
+
+        <ImageView
+            android:layout_marginBottom="5dp"
+            android:id="@+id/foto"
+            android:layout_width="250dp"
+            android:layout_height="100dp"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="10dp"
+            android:src="@drawable/menu" />
+
+        <ImageView
+            android:id="@+id/jalan"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/foto"
+            android:src="@drawable/jalan" />
+
+        <TextView
+            android:textColor="@color/hitam"
+            android:id="@+id/jdlJalan"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/foto"
+            android:layout_toRightOf="@+id/jalan"
+            android:text="Perbaikai Dijalan" />
+
+        <TextView
+            android:id="@+id/desJalan"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/jdlJalan"
+            android:layout_toRightOf="@+id/jalan"
+            android:text="Kirim lokasi anda, montir kami akan menghampiri anda" />
+        <View
+            android:layout_marginBottom="10dp"
+            android:id="@+id/view1"
+            android:layout_toRightOf="@+id/jalan"
+            android:layout_below="@+id/desJalan"
+            android:layout_width="match_parent"
+            android:background="@color/colorGray"
+            android:layout_height="1dp"/>
+
+        <ImageView
+
+            android:id="@+id/bengkel"
+            android:layout_below="@id/view1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/beng"/>
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/view1"
+            android:layout_toRightOf="@id/bengkel"/>
+
+        <Button
+
+            android:id="@+id/btn_navigasi"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentBottom="true"
+            android:layout_gravity="center"
+            android:layout_marginStart="24dp"
+            android:layout_marginLeft="24dp"
+            android:drawableLeft="@android:drawable/ic_menu_directions"
+            android:text="Navigasi" />
+    </RelativeLayout>
 </LinearLayout>

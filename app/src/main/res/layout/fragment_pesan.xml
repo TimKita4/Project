@@ -4,8 +4,8 @@
     android:id="@+id/activity_main2"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/colorGray"
-    tools:context=".Main2Activity">
+    android:background="@color/putih"
+    tools:context=".MainActivity">
     <android.support.v7.widget.Toolbar
         android:id="@+id/toolbar"
         app:title="Pesanan Anda"
@@ -13,6 +13,12 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginBottom="3dp"></android.support.v7.widget.Toolbar>
+    <View
+        android:id="@+id/View"
+        android:layout_below="@id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="2dp"
+        android:background="@color/colorGray"/>
     <android.support.v7.widget.RecyclerView
 
         android:id="@+id/ayolah"
@@ -20,6 +26,6 @@
         android:scrollbars="vertical"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/toolbar">
+        android:layout_below="@+id/View">
     </android.support.v7.widget.RecyclerView>
 </RelativeLayout>

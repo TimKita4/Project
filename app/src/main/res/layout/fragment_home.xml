@@ -8,14 +8,19 @@
     android:background="@color/colorGray"
     android:orientation="vertical"
     >
-<android.support.v7.widget.Toolbar
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:background="@color/putih"
-    android:layout_marginBottom="3dp"
-    app:title="Home">
 
-</android.support.v7.widget.Toolbar>
+    <android.support.v7.widget.Toolbar
+        android:id="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="3dp"
+        android:background="@color/putih"
+    >
+        <ImageView
+            android:layout_width="100dp"
+            android:layout_height="50dp"
+            android:src="@drawable/menu"/>
+    </android.support.v7.widget.Toolbar>
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -24,7 +29,11 @@
         android:background="@color/putih"
         android:padding="15dp"
         android:orientation="horizontal">
-
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/hitam"
+            android:id="@+id/username"/>
         <android.support.v7.widget.CardView
             android:foreground="?android:attr/selectableItemBackground"
             android:clickable="true"
@@ -39,21 +48,24 @@
                 android:orientation="vertical"
                 android:gravity="center"
                 >
+
                 <ImageView
                     android:layout_marginTop="5dp"
                     android:layout_width="50dp"
                     android:layout_height="50dp"
-                    android:background="@drawable/cerclebackgrounpurple"
-                    android:src="@drawable/perbaiki"
-                    android:padding="10dp"
+                    android:src="@drawable/perbaikan"
+
                     />
+
                 <TextView
+                    android:id="@+id/fPerbaiki"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:textStyle="bold"
-                    android:textSize="11dp"
-                    android:layout_marginTop="2dp"
-                    android:text="Perbaiki"/>
+                    android:layout_marginTop="5dp"
+                    android:textColor="@color/hitam"
+                    android:text="PERBAIKI"
+                    android:textSize="8dp"
+                    android:textStyle="bold" />
 
             </LinearLayout>
 
@@ -74,17 +86,17 @@
                     android:layout_marginTop="5dp"
                     android:layout_width="50dp"
                     android:layout_height="50dp"
-                    android:background="@drawable/circlebackground2"
                     android:src="@drawable/part"
-                    android:padding="10dp"
                     />
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:textStyle="bold"
-                    android:textSize="11dp"
-                    android:layout_marginTop="2dp"
-                    android:text="Sparepart"/>
+                    android:id="@+id/fSparepart"
+                    android:textColor="@color/hitam"
+                    android:textSize="8dp"
+                    android:layout_marginTop="5dp"
+                    android:text="SPAREPART"/>
 
 
             </LinearLayout>
@@ -109,21 +121,24 @@
                     android:layout_marginTop="5dp"
                     android:layout_width="50dp"
                     android:layout_height="50dp"
-                    android:background="@drawable/circlebackground3"
                     android:src="@drawable/montir"
-                    android:padding="10dp"
+
                     />
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:textStyle="bold"
-                    android:textSize="11dp"
-                    android:layout_marginTop="2dp"
-                    android:text="Montir"/>
+                    android:id="@+id/fMontir"
+                    android:textSize="8dp"
+                    android:textColor="@color/hitam"
+                    android:layout_marginTop="5dp"
+                    android:text="MONTIR"/>
             </LinearLayout>
 
         </android.support.v7.widget.CardView>
         <android.support.v7.widget.CardView
+            android:id="@+id/tentang"
+            android:foreground="?android:attr/selectableItemBackground"
             android:layout_width="70dp"
             android:layout_height="75dp"
             android:layout_margin="5dp"
@@ -141,17 +156,18 @@
                     android:layout_marginTop="5dp"
                     android:layout_width="50dp"
                     android:layout_height="50dp"
-                    android:background="@drawable/circlebackground4"
-                    android:src="@drawable/help"
-                    android:padding="10dp"
+                    android:src="@drawable/tentang"
+
                     />
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:textStyle="bold"
-                    android:textSize="11dp"
-                    android:layout_marginTop="2dp"
-                    android:text="Bantuan"/>
+                    android:textSize="8dp"
+                    android:id="@+id/fTentang"
+                    android:layout_marginTop="5dp"
+                    android:textColor="@color/hitam"
+                    android:text="BANTUAN"/>
             </LinearLayout>
 
         </android.support.v7.widget.CardView>
@@ -159,18 +175,29 @@
     </LinearLayout>
 
     <LinearLayout
-        android:layout_marginTop="10dp"
+        android:layout_marginTop="1dp"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:background="@color/putih"
         android:padding="15dp"
         android:layout_marginBottom="20dp"
         android:orientation="vertical">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="10dp"
+            android:textColor="@color/hitam"
+            android:id="@+id/part"
+            android:text="Sparepart"/>
+        <View
+            android:background="@color/colorGray"
+            android:layout_width="match_parent"
+            android:layout_height="2dp"/>
 
         <android.support.v7.widget.RecyclerView
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:id="@+id/recyclerView"
+            android:id="@+id/sparepartView"
             android:scrollbars="vertical">
         </android.support.v7.widget.RecyclerView>
     </LinearLayout>

@@ -5,8 +5,14 @@ import com.google.gson.annotations.SerializedName;
 import java.util.List;
 
 public class GetLogin {
+
+
     @SerializedName("status")
     String status;
+    @SerializedName("result")
+    List<Login> loginList;
+    @SerializedName("message")
+    String message;
 
     public String getStatus() {
         return status;
@@ -16,12 +22,12 @@ public class GetLogin {
         this.status = status;
     }
 
-    public List<Perbaikan> getPerbaikanList() {
-        return perbaikanList;
+    public List<Login> getLoginList() {
+        return loginList;
     }
 
-    public void setPerbaikanList(List<Perbaikan> perbaikanList) {
-        this.perbaikanList = perbaikanList;
+    public void setLoginList(List<Login> loginList) {
+        this.loginList = loginList;
     }
 
     public String getMessage() {
@@ -31,11 +37,5 @@ public class GetLogin {
     public void setMessage(String message) {
         this.message = message;
     }
-
-    @SerializedName("result")
-    List<Perbaikan> perbaikanList;
-    @SerializedName("message")
-    String message;
-
 
 }

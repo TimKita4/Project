@@ -3,9 +3,9 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:id="@+id/servis"
-    tools:context=".service"
-    >
+    tools:context=".service">
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -100,12 +100,21 @@
                 android:textColorHint="@color/hitam"
                 android:hint="Alamat"/>
         </android.support.design.widget.TextInputLayout>
-        <ImageButton
-            android:layout_toRightOf="@+id/tKel"
+        <android.support.v7.widget.CardView
+            android:foreground="?android:attr/selectableItemBackground"
             android:id="@+id/bt_ppicker"
-            android:src="@drawable/maps"
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent" />
+            android:layout_toRightOf="@+id/tKel"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:layout_margin="5dp"
+                app:cardCornerRadius="@dimen/fab_margin"
+                android:clickable="true">
+        <ImageView
+            android:layout_gravity="center"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:src="@drawable/share"/>
+        </android.support.v7.widget.CardView>
         </LinearLayout>
         <TextView
 
@@ -114,7 +123,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="latlong"
-            android:id="@+id/latLong"/>
+            android:id="@+id/latlong"/>
         <Button
             android:layout_centerHorizontal="true"
             android:layout_marginTop="5dp"

@@ -23,13 +23,16 @@ public class Perbaikan {
     private String tanggal;
     @SerializedName("LatLong")
     private String LatLong;
+    @SerializedName("montir")
+    private String montir;
+
 
     public Perbaikan(){}
 
 
 
 
-    public Perbaikan(String id, String nama, String no_hp, String alamat, String deskripsi, String jenis_perbaiki, String kondisi, String waktu, String tanggal, String LatLong){
+    public Perbaikan(String id, String nama, String no_hp, String alamat, String deskripsi, String jenis_perbaiki, String kondisi, String waktu, String tanggal, String LatLong, String montir){
     this.id=id;
     this.nama=nama;
     this.no_hp=no_hp;
@@ -40,7 +43,15 @@ public class Perbaikan {
     this.waktu=waktu;
     this.tanggal=tanggal;
     this.LatLong=LatLong;
+    this.montir=montir;
 
+    }
+
+    public String getMontir() {
+        return montir;
+    }
+    public void setMontir(String montir) {
+        this.montir = montir;
     }
     public String getId() {
         return id;

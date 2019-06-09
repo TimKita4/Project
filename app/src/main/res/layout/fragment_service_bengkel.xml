@@ -4,12 +4,10 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".serviceBengkel">
-
     <RelativeLayout
-        android:layout_margin="15dp"
-        android:id="@+id/up"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="match_parent"
+        android:layout_margin="15dp">
         <TextView
             android:id="@+id/judul"
             android:layout_width="match_parent"
@@ -18,36 +16,23 @@
             android:textColor="@color/hitam"
             android:textStyle="bold"
             android:textSize="20dp"
+            android:layout_marginBottom="5dp"
             />
         <View
             android:id="@+id/view"
-            android:layout_marginTop="15dp"
             android:layout_below="@id/judul"
             android:layout_width="match_parent"
             android:layout_height="1dp"
-            android:layout_marginBottom="15dp"
-            android:background="@color/hitam"/>
-        <android.support.v7.widget.RecyclerView
-            android:layout_below="@+id/view"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content">
-
-        </android.support.v7.widget.RecyclerView>
-    </RelativeLayout>
-
-    <RelativeLayout
-        android:layout_below="@+id/up"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_margin="15dp">
+            android:background="@color/colorGray"/>
         <android.support.design.widget.TextInputLayout
-            android:layout_marginTop="10dp"
+            android:layout_marginTop="15dp"
             android:id="@+id/tNama"
+            android:layout_below="@id/view"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             >
             <EditText
-                android:layout_below="@+id/judul"
+                android:layout_below="@+id/view"
                 android:layout_width="match_parent"
                 android:id="@+id/nama"
                 android:layout_height="wrap_content"
@@ -77,7 +62,7 @@
             android:layout_marginTop="5dp"
             >
             <EditText
-                android:id="@+id/deskipsi"
+                android:id="@+id/deskripsi"
                 android:layout_below="@+id/no_hp"
                 android:layout_width="match_parent"
                 android:layout_height="150dp"
@@ -85,6 +70,26 @@
                 android:inputType="text|textMultiLine"
                 android:gravity="top"/>
         </android.support.design.widget.TextInputLayout>
+        <Button
+            android:id="@+id/bPerbaiki"
+            android:layout_below="@id/tDeskripsi"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Lihat Antrian"/>
+        <Button
+            android:layout_below="@+id/bPerbaiki"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/btnInsert"
+            android:text="Perbaiki"/>
+        <Button
+            android:layout_below="@+id/btnInsert"
+            android:id="@+id/btn_navigasi"
+            android:layout_gravity="center"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:drawableLeft="@android:drawable/ic_menu_directions"
+            android:text="Navigasi" />
     </RelativeLayout>
 
 </RelativeLayout>

@@ -3,29 +3,33 @@
     <tab
         id="@+id/tab_home"
         icon="@drawable/home"
-        activeColor="#fa8231"
+        activeColor="#0abde3"
         titleSize="4dp"
         title="Home"
+        fontFamily="casual"
         />
     <tab
         id="@+id/tab_pesan"
         icon="@drawable/pesan"
-        activeColor="#fa8231"
+        activeColor="#0abde3"
         titleSize="4dp"
         title="Pesan"
+        fontFamily="casual"
         />
     <tab
         id="@+id/tab_notif"
         icon="@drawable/notif"
-        activeColor="#fa8231"
+        activeColor="#0abde3"
         titleSize="4dp"
         title="Notif"
+        fontFamily="casual"
         />
     <tab
         id="@+id/tab_profil"
         icon="@drawable/person"
-        activeColor="#fa8231"
+        activeColor="#0abde3"
         titleSize="4dp"
         title="Profil"
+        fontFamily="casual"
         />
 </Tab>

@@ -1,7 +1,6 @@
 package android.example.com.project.fragment;
 
 import android.example.com.project.R;
-import android.example.com.project.adapter.GridAdapter;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v7.widget.GridLayoutManager;
@@ -23,15 +22,6 @@ RecyclerView.Adapter mAdapter;
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         View view=inflater.inflate(R.layout.fragment_notif, container, false);
-        mRecycleView= (RecyclerView)view.findViewById(R.id.nyoba);
-        mRecycleView.setHasFixedSize(true);
-
-        mLayoutManager=new GridLayoutManager(getActivity(),2); //jumlah grid yang digunakan 2
-        mRecycleView.setLayoutManager(mLayoutManager);
-
-        mAdapter = new GridAdapter();
-        mRecycleView.setAdapter(mAdapter);
-
         return view;
     }
 }

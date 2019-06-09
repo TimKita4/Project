@@ -1,47 +1,26 @@
 package android.example.com.project;
 
-import android.app.ProgressDialog;
-import android.content.Context;
 import android.content.Intent;
 import android.example.com.project.Model.PostPutDelPerbaikan;
 import android.example.com.project.Rest.ApiClient;
 import android.example.com.project.Rest.ApiInterface;
-import android.example.com.project.Util.AppController;
-import android.example.com.project.Util.ServerAPI;
-import android.example.com.project.fragment.PesanFragment;
-import android.net.Uri;
+import android.graphics.Typeface;
 import android.os.Bundle;
-import android.support.annotation.NonNull;
-import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
-import android.support.v4.app.FragmentTabHost;
+import android.support.v7.widget.CardView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageButton;
-import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.android.volley.AuthFailureError;
-import com.android.volley.Request;
-import com.android.volley.RequestQueue;
-import com.android.volley.Response;
-import com.android.volley.VolleyError;
-import com.android.volley.toolbox.StringRequest;
-import com.android.volley.toolbox.Volley;
 import com.google.android.gms.common.GooglePlayServicesNotAvailableException;
 import com.google.android.gms.common.GooglePlayServicesRepairableException;
 import com.google.android.gms.location.places.Place;
 import com.google.android.gms.location.places.ui.PlacePicker;
-
-import org.json.JSONException;
-import org.json.JSONObject;
-
-import java.util.HashMap;
-import java.util.Map;
 
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -52,9 +31,9 @@ import static android.app.Activity.RESULT_OK;
 public class service extends Fragment {
     EditText edtNama,edtNomor,edtDeskripsi,edtAlamat,edtJenis;
     Button btInsert;
-    TextView LatLong;
+    TextView LatLong, judul;
     ApiInterface mApiInterface;
-    private ImageButton btPlacesAPI;
+    private CardView btPlacesAPI;
     private TextView tvPlaceAPI;
     // konstanta untuk mendeteksi hasil balikan dari place picker
     private int PLACE_PICKER_REQUEST = 1;
@@ -62,11 +41,14 @@ public class service extends Fragment {
     @Override
     public View onCreateView( LayoutInflater inflater,  ViewGroup container,  Bundle savedInstanceState) {
        View v= inflater.inflate(R.layout.fragment_service, container, false);
+        judul=v.findViewById(R.id.judul);
+        Typeface customfont=Typeface.createFromAsset(getContext().getAssets(),"font/NeoSansTR.otf");
+        judul.setTypeface(customfont);
         edtNama = (EditText) v.findViewById(R.id.edtNama);
         edtNomor = (EditText) v.findViewById(R.id.edtNomor);
         edtAlamat=v.findViewById(R.id.edtAlamat);
         edtDeskripsi=v.findViewById(R.id.edtDeskripsi);
-        LatLong=v.findViewById(R.id.latLong);
+        LatLong=v.findViewById(R.id.latlong);
         mApiInterface = ApiClient.getClient().create(ApiInterface.class);
         btInsert = (Button) v.findViewById(R.id.btInsert);
         btInsert.setOnClickListener(new View.OnClickListener() {
@@ -77,7 +59,7 @@ public class service extends Fragment {
                     @Override
                     public void onResponse(Call<PostPutDelPerbaikan> call, retrofit2.Response<PostPutDelPerbaikan> response) {
                         Toast.makeText(getContext(),"Berhasil",Toast.LENGTH_LONG).show();
-                        PesanFragment.ma.refresh();
+                       // PesanFragment.ma.refresh();
                         getActivity().finish();
                     }
 
@@ -90,9 +72,8 @@ public class service extends Fragment {
         });
 
         tvPlaceAPI = (TextView) v.findViewById(R.id.edtAlamat);
-        LatLong = (TextView) v.findViewById(R.id.latLong);
 
-        btPlacesAPI = (ImageButton) v.findViewById(R.id.bt_ppicker);
+        btPlacesAPI =  v.findViewById(R.id.bt_ppicker);
         btPlacesAPI.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {

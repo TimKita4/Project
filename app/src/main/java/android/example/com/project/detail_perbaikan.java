@@ -12,7 +12,7 @@ import android.support.v7.widget.Toolbar;
 import android.widget.TextView;
 
 public class detail_perbaikan extends AppCompatActivity {
-TextView nama,alamat,no_hp,deskripsi,jenis,kondisi;
+TextView nama,alamat,no_hp,deskripsi,jenis,kondisi,montir;
 ApiInterface mApiInterface;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -30,6 +30,7 @@ ApiInterface mApiInterface;
         deskripsi=findViewById(R.id.deskripsi);
         jenis=findViewById(R.id.jenis);
         kondisi=findViewById(R.id.kondisi);
+        montir=findViewById(R.id.montir);
         Intent mIntent=getIntent();
         nama.setText(mIntent.getStringExtra("nama"));
         no_hp.setText(mIntent.getStringExtra("no_hp"));
@@ -37,6 +38,7 @@ ApiInterface mApiInterface;
         deskripsi.setText(mIntent.getStringExtra("deskripsi"));
         jenis.setText(mIntent.getStringExtra("jenis"));
         kondisi.setText(mIntent.getStringExtra("kondisi"));
+        montir.setText(mIntent.getStringExtra("montir"));
         mApiInterface = ApiClient.getClient().create(ApiInterface.class);
     }
 }

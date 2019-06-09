@@ -4,7 +4,8 @@ import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
 
 public class ApiClient {
-    public static final String BASE_URL="http://192.168.1.16/ProjectKita/index.php/Perbaikan/";
+    public static final String BASE_URL="http://192.168.43.145/ProjectKita/index.php/Perbaikan/";
+
 
 
     private  static Retrofit retrofit=null;
@@ -17,7 +18,6 @@ public class ApiClient {
         }
         return retrofit;
     }
-
 
 
 }

@@ -37,7 +37,7 @@ public class perbaikan extends AppCompatActivity {
 
         mSlidingTabLayout=findViewById(R.id.stl_tabs);
         mSlidingTabLayout.setDistributeEvenly(true);
-        mSlidingTabLayout.setBackgroundColor(getResources().getColor(R.color.oren_bawah));
+        mSlidingTabLayout.setBackgroundColor(getResources().getColor(R.color.toolbar));
         mSlidingTabLayout.setSelectedIndicatorColors(getResources().getColor(R.color.abu));
         mSlidingTabLayout.setCustomTabView(R.layout.tab_view,R.id.tv_tab);
         mSlidingTabLayout.setViewPager(mViewPager);

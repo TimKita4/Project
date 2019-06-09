@@ -4,7 +4,7 @@ import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
 
 public class ApiClientMontir {
-    public static final String BASE_URL_MONTIIR="http://192.168.1.16/ProjectKita/index.php/Montir/";
+    public static final String BASE_URL_MONTIIR="http://192.168.43.145/ProjectKita/index.php/Montir/";
     private  static Retrofit retrofit=null;
     public  static Retrofit getMontir(){
 

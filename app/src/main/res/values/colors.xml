@@ -11,7 +11,7 @@
     <color name="abu">#2f3640</color>
     <color name="putih">#ffff</color>
     <color name="hitam">#000</color>
-    <color name="oren">#fa8231</color>
-    <color name="oren_bawah">#fd9644</color>
+    <color name="bg_splash">#0d1984</color>
+    <color name="splash_title">#faf31c</color>
 
 </resources>
