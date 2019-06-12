@@ -15,6 +15,7 @@ import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.Button;
@@ -42,8 +43,9 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
-        SharedPreferences sharedPreferences = MainActivity.this.getSharedPreferences("remember",Context.MODE_PRIVATE);
+       /* SharedPreferences sharedPreferences = MainActivity.this.getSharedPreferences("remember",Context.MODE_PRIVATE);
         String id = sharedPreferences.getString("id","0");
+        Log.e("id",id);*/
 
 
         /*
